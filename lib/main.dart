@@ -1,4 +1,5 @@
 import 'package:dog_app/app/core/get_it/get_it.dart';
+import 'package:dog_app/app/presentation/home/home_view.dart';
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:dog_app/app/presentation/settings/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SettingsView(),
+        home: const HomeView(),
       ),
     );
   }
