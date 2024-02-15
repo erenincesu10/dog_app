@@ -7,14 +7,22 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SizedBox(
           width: context.width,
           height: context.height,
           child: Center(
-            child: SizedBox(
+            child: Container(
               width: context.width * 0.2,
               height: context.width * 0.2,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    "assets/icons/img_appicon.png",
+                  ),
+                ),
+              ),
             ),
           ),
         ),
