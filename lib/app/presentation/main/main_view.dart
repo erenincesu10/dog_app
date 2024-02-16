@@ -17,7 +17,9 @@ class MainView extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: const HomeAppbar(),
-          body: state.selectedIndex == 0 ? HomeView() : SettingsView(),
+          body: state.selectedIndex == 0
+              ? const HomeView()
+              : const SettingsView(),
           bottomNavigationBar: Container(
             width: context.width,
             height: context.height * 0.12,

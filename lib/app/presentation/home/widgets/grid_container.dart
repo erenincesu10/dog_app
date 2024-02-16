@@ -1,9 +1,17 @@
-import 'package:dog_app/app/core/extensions/build_context_extensions.dart';
-import 'package:dog_app/app/presentation/home/widgets/alert_container.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
+import 'package:dog_app/app/core/extensions/build_context_extensions.dart';
+import 'package:dog_app/app/presentation/home/widgets/alert_container.dart';
+
 class GridContainer extends StatelessWidget {
-  const GridContainer({super.key});
+  final String imageUrl;
+  final String name;
+  const GridContainer({
+    Key? key,
+    required this.imageUrl,
+    required this.name,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +24,10 @@ class GridContainer extends StatelessWidget {
         height: context.width * 0.3,
         alignment: Alignment.bottomLeft,
         decoration: BoxDecoration(
+          image: DecorationImage(
+            image: NetworkImage(imageUrl),
+            fit: BoxFit.cover,
+          ),
           color: Colors.red,
           borderRadius: BorderRadius.circular(8),
         ),
@@ -29,7 +41,7 @@ class GridContainer extends StatelessWidget {
               bottomLeft: Radius.circular(8),
             ),
           ),
-          child: Center(child: Text("Breed")),
+          child: Center(child: Text(name)),
         ),
       ),
     );

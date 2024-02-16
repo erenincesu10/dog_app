@@ -6,3 +6,10 @@ sealed class HomeEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class FetchBreedsEvent extends HomeEvent {
+  const FetchBreedsEvent();
+
+  @override
+  List<Object> get props => [];
+}
