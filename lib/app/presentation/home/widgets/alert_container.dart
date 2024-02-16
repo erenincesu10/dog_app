@@ -14,7 +14,7 @@ class _AlertContainerState extends State<AlertContainer> {
     return AlertDialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       contentPadding: EdgeInsets.zero,
-      content: Container(
+      content: SizedBox(
         width: context.width * 0.8,
         height: context.height * 0.8,
         child: Column(
@@ -22,7 +22,7 @@ class _AlertContainerState extends State<AlertContainer> {
             Container(
               width: context.width * 0.8,
               height: context.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(12),
                   topRight: Radius.circular(12),
@@ -34,7 +34,7 @@ class _AlertContainerState extends State<AlertContainer> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
               ),
             ),
           ],

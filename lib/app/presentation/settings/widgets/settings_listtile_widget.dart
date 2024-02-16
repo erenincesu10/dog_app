@@ -27,7 +27,7 @@ class _SettingsListTileWidgetState extends State<SettingsListTileWidget> {
       builder: (context, state) {
         return ListTile(
           onTap: () async {
-            bloc.add(SetVersionEvent(versionNumber: "versionNumber"));
+            bloc.add(const SetVersionEvent(versionNumber: "versionNumber"));
           },
           leading: Image.asset(widget.iconPath),
           title: Text(widget.title),

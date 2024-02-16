@@ -1,3 +1,4 @@
+import 'package:dog_app/app/presentation/main/bloc/main_bloc.dart';
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:get_it/get_it.dart';
 
@@ -28,5 +29,11 @@ void setupDatasource() {
 }
 
 void setupBLoC() {
-  getIt.registerLazySingleton<SettingsBloc>(() => SettingsBloc());
+  getIt
+    ..registerLazySingleton<SettingsBloc>(
+      () => SettingsBloc(),
+    )
+    ..registerLazySingleton<MainBloc>(
+      () => MainBloc(),
+    );
 }

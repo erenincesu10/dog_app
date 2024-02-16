@@ -8,7 +8,7 @@ part 'settings_state.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc()
       : super(
-          SettingsState(
+          const SettingsState(
             versionNumber: "",
           ),
         ) {

@@ -1,4 +1,5 @@
 import 'package:dog_app/app/core/extensions/build_context_extensions.dart';
+// ignore: unused_import
 import 'package:dog_app/app/core/get_it/get_it.dart';
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:dog_app/app/presentation/settings/mixin/settings_mixin.dart';
@@ -19,27 +20,24 @@ class _SettingsViewState extends State<SettingsView> with SettingsMixin {
     return BlocBuilder<SettingsBloc, SettingsState>(
       bloc: context.read<SettingsBloc>(),
       builder: (context, state) {
-        return Scaffold(
-          body: SafeArea(
-            child: SizedBox(
-              width: context.width,
-              height: context.height,
-              child: ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                separatorBuilder: (context, index) => const Divider(
-                  indent: 16,
-                ),
-                shrinkWrap: true,
-                itemCount: settingsListTiles.length,
-                itemBuilder: (context, index) => SettingsListTileWidget(
-                  iconPath: settingsListTiles[index].iconPath!,
-                  title: settingsListTiles[index].title!,
-                  isVersion:
-                      index == settingsListTiles.length - 1 ? true : false,
-                  versionNumber: index == settingsListTiles.length - 1
-                      ? state.versionNumber
-                      : null,
-                ),
+        return SafeArea(
+          child: SizedBox(
+            width: context.width,
+            height: context.height,
+            child: ListView.separated(
+              physics: const NeverScrollableScrollPhysics(),
+              separatorBuilder: (context, index) => const Divider(
+                indent: 16,
+              ),
+              shrinkWrap: true,
+              itemCount: settingsListTiles.length,
+              itemBuilder: (context, index) => SettingsListTileWidget(
+                iconPath: settingsListTiles[index].iconPath!,
+                title: settingsListTiles[index].title!,
+                isVersion: index == settingsListTiles.length - 1 ? true : false,
+                versionNumber: index == settingsListTiles.length - 1
+                    ? state.versionNumber
+                    : null,
               ),
             ),
           ),
