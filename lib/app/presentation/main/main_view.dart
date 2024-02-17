@@ -16,31 +16,26 @@ class MainView extends StatelessWidget {
     return BlocBuilder<MainBloc, MainState>(
       builder: (context, state) {
         return Scaffold(
-          resizeToAvoidBottomInset: false,
           appBar: const HomeAppbar(),
           body: Stack(
             children: [
               state.selectedIndex == 0
                   ? const HomeView()
                   : const SettingsView(),
-              Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Column(
-                    children: [
-                      const Spacer(),
-                      state.selectedIndex == 0
-                          ? const Align(
-                              alignment: Alignment.center,
-                              child: CustomTextField())
-                          : const SizedBox(),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const BottomBarWidget(),
-                    ],
-                  ))
+              state.selectedIndex == 0
+                  ? const Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        CustomTextField(),
+                        SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    )
+                  : const SizedBox(),
             ],
           ),
+          bottomNavigationBar: const BottomBarWidget(),
         );
       },
     );

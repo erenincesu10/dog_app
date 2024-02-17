@@ -23,14 +23,16 @@ class _CustomTextFieldState extends State<CustomTextField> {
             containerHeight = 100;
           });
         } else if (details.delta.dy < -5) {
-          setState(() {
-            containerHeight = 500;
-          });
+          setState(
+            () {
+              containerHeight = 600;
+            },
+          );
         }
       },
       child: Center(
         child: SizedBox(
-          width: containerHeight > 200 ? context.width :  context.width * 0.8,
+          width: containerHeight > 200 ? context.width : context.width * 0.8,
           height: containerHeight,
           child: TextField(
             onTap: () {
@@ -56,7 +58,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
             maxLines: null,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
-              
               hintText: "Search",
               filled: true,
               fillColor: Colors.white,
