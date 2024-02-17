@@ -26,13 +26,13 @@ class _AlertContainerState extends State<AlertContainer> {
           contentPadding: EdgeInsets.zero,
           content: SizedBox(
             width: context.width * 0.95,
-            height: context.height * 0.75,
+            height: context.height * 0.85,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   width: context.width * 0.9,
-                  height: context.height * 0.3,
+                  height: context.height * 0.4,
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     image: DecorationImage(

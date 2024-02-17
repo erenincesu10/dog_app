@@ -24,7 +24,10 @@ class MainView extends StatelessWidget {
             width: context.width,
             height: context.height * 0.12,
             decoration: BoxDecoration(
-              color: ColorConstant.primaryColor,
+              image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/images/img_tab.png')),
+              color: Colors.transparent,
               border: Border.all(width: 2, color: ColorConstant.cBorderGray),
             ),
             child: Row(
