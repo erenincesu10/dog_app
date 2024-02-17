@@ -17,4 +17,14 @@ class DogRepositroyImpl implements DogRepository {
       return ErrorDataResult(message: "DogRepositoryImpl fetchBreeds $e");
     }
   }
+
+  @override
+  Future<DataResult<String>> fetchBreedByName({required String name}) async {
+    try {
+      var url = await _remoteDataSource.fetchBreedByName(name: name);
+      return SuccessDataResult(data: url);
+    } catch (e) {
+      return ErrorDataResult(message: "DogRepositoryImpl fetchBreeds $e");
+    }
+  }
 }

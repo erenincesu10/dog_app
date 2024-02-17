@@ -35,4 +35,12 @@ class DogRemoteDataSourceImpl implements DogRemoteDataSource {
     }
     return breedModels;
   }
+
+  @override
+  Future<String> fetchBreedByName({required String name}) async {
+    var response =
+        await http.get(Uri.parse("https://dog.ceo/api/breed/$name/images/random"));
+    print(response.body);
+    return "a";
+  }
 }
