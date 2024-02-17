@@ -1,4 +1,3 @@
-
 import 'package:dog_app/app/presentation/home/home_view.dart';
 import 'package:dog_app/app/presentation/home/widgets/home_appbar.dart';
 import 'package:dog_app/app/presentation/main/bloc/main_bloc.dart';
@@ -17,16 +16,29 @@ class MainView extends StatelessWidget {
     return BlocBuilder<MainBloc, MainState>(
       builder: (context, state) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: const HomeAppbar(),
           body: Stack(
             children: [
               state.selectedIndex == 0
                   ? const HomeView()
                   : const SettingsView(),
-              state.selectedIndex == 0
-                  ? Align(alignment: Alignment.center, child: CustomTextField())
-                  : SizedBox(),
-              Align(alignment: Alignment.bottomCenter, child: BottomBarWidget())
+              Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
+                    children: [
+                      const Spacer(),
+                      state.selectedIndex == 0
+                          ? const Align(
+                              alignment: Alignment.center,
+                              child: CustomTextField())
+                          : const SizedBox(),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const BottomBarWidget(),
+                    ],
+                  ))
             ],
           ),
         );

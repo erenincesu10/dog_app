@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dog_app/app/core/constants/color_constant.dart';
 import 'package:dog_app/app/core/extensions/build_context_extensions.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       },
       child: Center(
         child: SizedBox(
-          width: context.width * 0.8,
+          width: containerHeight > 200 ? context.width :  context.width * 0.8,
           height: containerHeight,
           child: TextField(
             onTap: () {
