@@ -13,3 +13,15 @@ class FetchBreedsEvent extends HomeEvent {
   @override
   List<Object> get props => [];
 }
+
+class SetSelectedIndexEvent extends HomeEvent {
+  final int selectedIndex;
+  const SetSelectedIndexEvent({
+    required this.selectedIndex,
+  });
+
+  @override
+  List<Object> get props => [
+        selectedIndex,
+      ];
+}

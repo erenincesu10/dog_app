@@ -25,6 +25,7 @@ class _HomeViewState extends State<HomeView> {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 16),
             itemBuilder: (context, index) => GridContainer(
+              index: index,
               name: state.breedModels[index].name!,
               imageUrl: state.breedModels[index].imagePath!,
             ),

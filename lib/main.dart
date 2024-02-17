@@ -2,7 +2,6 @@ import 'package:dog_app/app/core/constants/color_constant.dart';
 import 'package:dog_app/app/core/get_it/get_it.dart';
 import 'package:dog_app/app/presentation/home/bloc/home_bloc.dart';
 import 'package:dog_app/app/presentation/main/bloc/main_bloc.dart';
-import 'package:dog_app/app/presentation/main/main_view.dart';
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:dog_app/app/presentation/splash/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   setupGetIT();
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }

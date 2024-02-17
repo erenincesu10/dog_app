@@ -11,18 +11,22 @@ enum HomeStatus {
 class HomeState extends Equatable {
   final HomeStatus status;
   final List<DogBreedModel> breedModels;
+  final int selectedIndex;
   const HomeState({
     required this.status,
     required this.breedModels,
+    required this.selectedIndex,
   });
 
   HomeState copyWith({
     HomeStatus? status,
     List<DogBreedModel>? breedModels,
+    int? selectedIndex,
   }) {
     return HomeState(
       status: status ?? this.status,
       breedModels: breedModels ?? this.breedModels,
+      selectedIndex: selectedIndex ?? this.selectedIndex,
     );
   }
 
@@ -30,5 +34,6 @@ class HomeState extends Equatable {
   List<Object> get props => [
         status,
         breedModels,
+        selectedIndex,
       ];
 }

@@ -7,9 +7,9 @@ import 'package:http/http.dart' as http;
 class DogRemoteDataSourceImpl implements DogRemoteDataSource {
   @override
   Future<List<DogBreedModel>> fetchBreeds() async {
-    var breedsResponse =
+    var response =
         await http.get(Uri.parse("https://dog.ceo/api/breeds/list/all"));
-    var breedsData = jsonDecode(breedsResponse.body);
+    var breedsData = jsonDecode(response.body);
     var breeds = breedsData["message"] as Map<String, dynamic>;
 
     List<DogBreedModel> breedModels = [];
@@ -25,7 +25,7 @@ class DogRemoteDataSourceImpl implements DogRemoteDataSource {
         var imageUrlData = jsonDecode(imageUrlResponse.body);
 
         imageUrl = imageUrlData["message"];
-      } else {}
+      }
 
       /// If the imageUrl is not empty, add it to the list
       if (imageUrl.isNotEmpty) {
