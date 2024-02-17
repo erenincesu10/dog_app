@@ -20,11 +20,13 @@ class _HomeViewState extends State<HomeView> {
           width: context.width,
           height: context.height,
           child: GridView.builder(
+            key: const PageStorageKey(0),
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: state.breedModels.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 16),
             itemBuilder: (context, index) => GridContainer(
+              index: index,
               name: state.breedModels[index].name!,
               imageUrl: state.breedModels[index].imagePath!,
             ),

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 part 'settings_event.dart';
@@ -25,6 +26,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       print(osVersion);
       emit(state.copyWith(versionNumber: osVersion));
     } on PlatformException catch (e) {
+      debugPrint(e.toString());
       osVersion = "Failed";
       emit(state.copyWith(versionNumber: osVersion));
     }

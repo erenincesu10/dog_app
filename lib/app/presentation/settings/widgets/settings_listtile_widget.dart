@@ -1,14 +1,13 @@
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingsListTileWidget extends StatefulWidget {
   final String iconPath;
   final String title;
   final bool isVersion;
-  String? versionNumber;
-  SettingsListTileWidget(
+  final String? versionNumber;
+  const SettingsListTileWidget(
       {super.key,
       required this.iconPath,
       required this.title,

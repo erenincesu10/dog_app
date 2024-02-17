@@ -10,8 +10,15 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required DogRepository dogRepository})
       : _dogRepository = dogRepository,
-        super(HomeState(status: HomeStatus.init, breedModels: [])) {
+        super(const HomeState(
+          status: HomeStatus.init,
+          breedModels: [],
+          selectedIndex: 0,
+          fetchedImage: "",
+        )) {
     on<FetchBreedsEvent>(_fetchBreeds);
+    on<SetSelectedIndexEvent>(_setSelectedIndex);
+    on<FetchRandomImageEvent>(_fetchBreedByName);
   }
 
   final DogRepository _dogRepository;
@@ -34,5 +41,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         state.copyWith(status: HomeStatus.error),
       );
     }
+  }
+
+  void _setSelectedIndex(SetSelectedIndexEvent event, Emitter<HomeState> emit) {
+    emit(
+      state.copyWith(
+        selectedIndex: event.selectedIndex,
+      ),
+    );
+  }
+
+  Future<void> _fetchBreedByName(
+      FetchRandomImageEvent event, Emitter<HomeState> emit) async {
+    var result = await _dogRepository.fetchBreedByName(name: event.name);
+    emit(
+      state.copyWith(fetchedImage: result.data),
+    );
   }
 }
