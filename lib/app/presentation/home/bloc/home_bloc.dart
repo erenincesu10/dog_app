@@ -14,9 +14,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           status: HomeStatus.init,
           breedModels: [],
           selectedIndex: 0,
+          fetchedImage: "",
         )) {
     on<FetchBreedsEvent>(_fetchBreeds);
     on<SetSelectedIndexEvent>(_setSelectedIndex);
+    on<FetchRandomImageEvent>(_fetchBreedByName);
   }
 
   final DogRepository _dogRepository;
@@ -46,6 +48,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       state.copyWith(
         selectedIndex: event.selectedIndex,
       ),
+    );
+  }
+
+  Future<void> _fetchBreedByName(
+      FetchRandomImageEvent event, Emitter<HomeState> emit) async {
+    var result = await _dogRepository.fetchBreedByName(name: event.name);
+    emit(
+      state.copyWith(fetchedImage: result.data),
     );
   }
 }

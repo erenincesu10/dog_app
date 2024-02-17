@@ -38,9 +38,9 @@ class DogRemoteDataSourceImpl implements DogRemoteDataSource {
 
   @override
   Future<String> fetchBreedByName({required String name}) async {
-    var response =
-        await http.get(Uri.parse("https://dog.ceo/api/breed/$name/images/random"));
-    print(response.body);
-    return "a";
+    http.Response response = await http
+        .get(Uri.parse("https://dog.ceo/api/breed/$name/images/random"));
+    var link = jsonDecode(response.body);
+    return link["message"];
   }
 }

@@ -1,6 +1,7 @@
 import 'package:dog_app/app/core/constants/color_constant.dart';
 import 'package:dog_app/app/core/extensions/build_context_extensions.dart';
 import 'package:dog_app/app/presentation/home/bloc/home_bloc.dart';
+import 'package:dog_app/app/presentation/home/widgets/generate_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,25 +100,7 @@ class _AlertContainerState extends State<AlertContainer> {
                 const SizedBox(
                   height: 10,
                 ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorConstant.cButtonBackground,
-                    fixedSize: Size(context.width * 0.7, context.height * 0.07),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  onPressed: () {
-                    print("yes");
-                  },
-                  child: const Text(
-                    "Generate",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                GenerateButton(),
                 const SizedBox(
                   height: 10,
                 ),
