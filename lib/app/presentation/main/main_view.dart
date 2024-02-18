@@ -7,8 +7,15 @@ import 'package:dog_app/app/presentation/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainView extends StatelessWidget {
+class MainView extends StatefulWidget {
   const MainView({super.key});
+
+  @override
+  State<MainView> createState() => _MainViewState();
+}
+
+class _MainViewState extends State<MainView> {
+  GlobalKey scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +23,7 @@ class MainView extends StatelessWidget {
     return BlocBuilder<MainBloc, MainState>(
       builder: (context, state) {
         return Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: const HomeAppbar(),
           body: Stack(
             children: [
@@ -23,12 +31,7 @@ class MainView extends StatelessWidget {
                   ? const HomeView()
                   : const SettingsView(),
               state.selectedIndex == 0
-                  ? const Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        CustomTextField(),
-                      ],
-                    )
+                  ? const CustomTextField()
                   : const SizedBox(),
             ],
           ),

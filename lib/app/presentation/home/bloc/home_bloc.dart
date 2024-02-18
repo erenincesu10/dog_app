@@ -29,6 +29,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   TextEditingController searchController = TextEditingController();
 
+  FocusNode focusNode = FocusNode();
+
   final DogRepository _dogRepository;
 
   Future<void> _fetchBreeds(
