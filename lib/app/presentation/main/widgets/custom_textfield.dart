@@ -35,7 +35,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   const ChangeTextFieldStatusEvent(textfieldStatus: 2),
                 );
                 Future.delayed(const Duration(microseconds: 500));
-              } else if (details.delta.dy > 10.9 && details.delta.dy < 12) {
+              } else if (details.delta.dy > 10.7 && details.delta.dy < 12) {
                 bloc.add(
                   const ChangeTextFieldStatusEvent(textfieldStatus: 0),
                 );
