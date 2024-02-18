@@ -54,7 +54,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               height: state.textfieldStatus == 0
                   ? 60
                   : state.textfieldStatus == 1
-                      ? context.height * 0.27
+                      ? context.height * 0.32
                       : context.height,
               child: TextField(
                 controller: bloc.searchController,
