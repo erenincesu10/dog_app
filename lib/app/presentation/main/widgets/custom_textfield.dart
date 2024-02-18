@@ -22,27 +22,30 @@ class _CustomTextFieldState extends State<CustomTextField> {
       builder: (context, state) {
         return GestureDetector(
           onPanUpdate: (details) {
-            if (state.textfieldStatus != 0) {
-              if (details.delta.dy > 10) {
-                if (state.textfieldStatus == 1) {
-                  bloc.focusNode.unfocus();
-                  bloc.add(
-                    const ChangeTextFieldStatusEvent(textfieldStatus: 0),
-                  );
-                } else {
-                  bloc.add(
-                    const ChangeTextFieldStatusEvent(textfieldStatus: 1),
-                  );
-                }
-              } else if (details.delta.dy < -5) {
+            if (state.textfieldStatus == 2) {
+              if (details.delta.dy > 5) {
+                bloc.add(
+                  const ChangeTextFieldStatusEvent(textfieldStatus: 1),
+                );
+                Future.delayed(const Duration(microseconds: 500));
+              }
+            } else if (state.textfieldStatus == 1) {
+              if (details.delta.dy < -7) {
                 bloc.add(
                   const ChangeTextFieldStatusEvent(textfieldStatus: 2),
                 );
+                Future.delayed(const Duration(microseconds: 500));
+              } else if (details.delta.dy > 10.9 && details.delta.dy < 12) {
+                bloc.add(
+                  const ChangeTextFieldStatusEvent(textfieldStatus: 0),
+                );
+                bloc.focusNode.unfocus();
               }
             }
           },
           child: Center(
-            child: Container(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
               margin: state.textfieldStatus == 0
                   ? EdgeInsets.only(top: context.height * 0.6)
                   : EdgeInsets.zero,
@@ -54,7 +57,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
               height: state.textfieldStatus == 0
                   ? 60
                   : state.textfieldStatus == 1
-                      ? context.height * 0.32
+                      ? context.height * 0.385
                       : context.height,
               child: TextField(
                 controller: bloc.searchController,
