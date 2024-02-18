@@ -1,4 +1,3 @@
-import 'package:dog_app/app/core/constants/color_constant.dart';
 import 'package:dog_app/app/core/get_it/get_it.dart';
 import 'package:dog_app/app/presentation/home/bloc/home_bloc.dart';
 import 'package:dog_app/app/presentation/main/bloc/main_bloc.dart';
