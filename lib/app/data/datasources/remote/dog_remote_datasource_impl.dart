@@ -11,7 +11,6 @@ class DogRemoteDataSourceImpl implements DogRemoteDataSource {
   Future<List<DogBreedModel>> fetchBreeds() async {
     Directory directory = await getApplicationDocumentsDirectory();
     directory.listSync().forEach((FileSystemEntity entity) {
-      print("girdim");
       if (entity is File) {
         entity.deleteSync();
       }
@@ -24,7 +23,6 @@ class DogRemoteDataSourceImpl implements DogRemoteDataSource {
     List<DogBreedModel> breedModels = [];
     for (var breed in breeds.keys) {
       File file = File("");
-      print("hello");
       List<String> subBreeds = List<String>.from(breeds[breed]);
       String imageUrl = '';
 

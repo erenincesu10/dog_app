@@ -30,7 +30,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 Future.delayed(const Duration(microseconds: 500));
               }
             } else if (state.textfieldStatus == 1) {
-              if (details.delta.dy < -7) {
+              if (details.delta.dy < -5) {
                 bloc.add(
                   const ChangeTextFieldStatusEvent(textfieldStatus: 2),
                 );
