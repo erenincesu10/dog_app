@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:dog_app/app/core/constants/color_constant.dart';
@@ -10,7 +11,7 @@ import 'package:dog_app/app/presentation/home/widgets/alert_container.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GridContainer extends StatelessWidget {
-  final String imageUrl;
+  final File imageUrl;
   final String name;
   final int index;
   const GridContainer({
@@ -41,7 +42,7 @@ class GridContainer extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(imageUrl),
+                image: FileImage(imageUrl),
                 fit: BoxFit.cover,
               ),
               color: ColorConstant.primaryColor,

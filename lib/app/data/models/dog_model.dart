@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:equatable/equatable.dart';
 
 final class DogBreedModel extends Equatable {
   final String? name;
-  final String? imagePath;
+  final File? imagePath;
   final List? subBreeds;
   const DogBreedModel({
     this.name,
@@ -15,7 +17,7 @@ final class DogBreedModel extends Equatable {
 
   DogBreedModel copyWith({
     String? name,
-    String? imagePath,
+    File? imagePath,
     List? subBreeds,
   }) {
     return DogBreedModel(

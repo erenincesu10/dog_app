@@ -37,7 +37,7 @@ class _AlertContainerState extends State<AlertContainer> {
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: NetworkImage(
+                        image: FileImage(
                           state.breedModels[state.selectedIndex].imagePath!,
                         ),
                         fit: BoxFit.cover),
