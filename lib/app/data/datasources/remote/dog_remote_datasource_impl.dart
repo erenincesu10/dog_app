@@ -9,6 +9,13 @@ import 'package:path_provider/path_provider.dart';
 class DogRemoteDataSourceImpl implements DogRemoteDataSource {
   @override
   Future<List<DogBreedModel>> fetchBreeds() async {
+    Directory directory = await getApplicationDocumentsDirectory();
+    directory.listSync().forEach((FileSystemEntity entity) {
+      print("girdim");
+      if (entity is File) {
+        entity.deleteSync();
+      }
+    });
     var response =
         await http.get(Uri.parse("https://dog.ceo/api/breeds/list/all"));
     var breedsData = jsonDecode(response.body);
@@ -30,7 +37,6 @@ class DogRemoteDataSourceImpl implements DogRemoteDataSource {
 
         imageUrl = imageUrlData["message"];
         Future<File> getLocalImageFile() async {
-          Directory directory = await getApplicationDocumentsDirectory();
           String filePath = '${directory.path}/cached_image_$breed.jpg';
           file = File(filePath);
 

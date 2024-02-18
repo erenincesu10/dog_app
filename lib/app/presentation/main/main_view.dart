@@ -7,15 +7,8 @@ import 'package:dog_app/app/presentation/settings/settings_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainView extends StatefulWidget {
+class MainView extends StatelessWidget {
   const MainView({super.key});
-
-  @override
-  State<MainView> createState() => _MainViewState();
-}
-
-class _MainViewState extends State<MainView> {
-  GlobalKey scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {

@@ -72,7 +72,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   bloc.add(
                     const ChangeTextFieldStatusEvent(textfieldStatus: 0),
                   );
-                  bloc.searchController.clear();
                 },
                 focusNode: bloc.focusNode,
                 cursorColor: ColorConstant.cTextBlue,

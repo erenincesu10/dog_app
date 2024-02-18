@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +29,12 @@ class _SettingsListTileWidgetState extends State<SettingsListTileWidget> {
           leading: Image.asset(widget.iconPath),
           title: Text(widget.title),
           trailing: widget.isVersion
-              ? Text(widget.versionNumber!)
+              ? Text(
+                  Platform.isAndroid
+                      ? "Android ${widget.versionNumber!}"
+                      : "IOS ${widget.versionNumber!}",
+                  style: const TextStyle(fontSize: 16),
+                )
               : Image.asset('assets/icons/img_arrow.png'),
         );
       },

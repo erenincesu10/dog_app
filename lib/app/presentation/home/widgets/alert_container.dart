@@ -86,15 +86,21 @@ class _AlertContainerState extends State<AlertContainer> {
                   indent: 32,
                   endIndent: 32,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: List.generate(
-                    state.breedModels[state.selectedIndex].subBreeds!.length,
-                    (index) => Padding(
+                state
+                        .breedModels[state.selectedIndex].subBreeds!.isEmpty ?SizedBox() : Expanded(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: state
+                        .breedModels[state.selectedIndex].subBreeds!.length,
+                    itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(bottom: 4.0),
-                      child: Text(
-                        state
-                            .breedModels[state.selectedIndex].subBreeds![index],
+                      child: Center(
+                        child: Text(
+                          state.breedModels[state.selectedIndex]
+                              .subBreeds![index],
+                          style: const TextStyle(
+                              color: Colors.black, fontSize: 16),
+                        ),
                       ),
                     ),
                   ),
