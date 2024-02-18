@@ -14,6 +14,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
+    var bloc = context.read<HomeBloc>();
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         return SizedBox(
@@ -22,13 +23,19 @@ class _HomeViewState extends State<HomeView> {
           child: GridView.builder(
             key: const PageStorageKey(0),
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: state.breedModels.length,
+            itemCount: bloc.searchController.text.isEmpty
+                ? state.breedModels.length
+                : state.searchList.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisSpacing: 16, crossAxisSpacing: 16),
             itemBuilder: (context, index) => GridContainer(
               index: index,
-              name: state.breedModels[index].name!,
-              imageUrl: state.breedModels[index].imagePath!,
+              name: bloc.searchController.text.isEmpty
+                  ? state.breedModels[index].name!
+                  : state.searchList[index].name!,
+              imageUrl: bloc.searchController.text.isEmpty
+                  ? state.breedModels[index].imagePath!
+                  : state.searchList[index].imagePath!,
             ),
           ),
         );

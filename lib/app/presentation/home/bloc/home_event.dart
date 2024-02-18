@@ -37,3 +37,20 @@ class FetchRandomImageEvent extends HomeEvent {
         name,
       ];
 }
+
+class ChangeTextFieldStatusEvent extends HomeEvent {
+  final int textfieldStatus;
+  const ChangeTextFieldStatusEvent({
+    required this.textfieldStatus,
+  });
+  @override
+  List<Object> get props => [
+        textfieldStatus,
+      ];
+}
+
+class SearchDogByNameEvent extends HomeEvent {
+  const SearchDogByNameEvent();
+  @override
+  List<Object> get props => [];
+}

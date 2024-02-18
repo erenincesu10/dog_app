@@ -27,9 +27,6 @@ class MainView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         CustomTextField(),
-                        SizedBox(
-                          height: 20,
-                        ),
                       ],
                     )
                   : const SizedBox(),
