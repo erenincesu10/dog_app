@@ -1,49 +1,32 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-import 'dart:convert';
+import 'dart:io';
 
 import 'package:equatable/equatable.dart';
 
-final class Dog extends Equatable {
-  String? name;
-  String? imagePath;
-  Dog({
+final class DogBreedModel extends Equatable {
+  final String? name;
+  final File? imagePath;
+  final List? subBreeds;
+  const DogBreedModel({
     this.name,
     this.imagePath,
+    this.subBreeds,
   });
 
-  Dog copyWith({
+  @override
+  List<Object?> get props => [name, imagePath, subBreeds];
+
+  DogBreedModel copyWith({
     String? name,
-    String? imagePath,
+    File? imagePath,
+    List? subBreeds,
   }) {
-    return Dog(
+    return DogBreedModel(
       name: name ?? this.name,
       imagePath: imagePath ?? this.imagePath,
+      subBreeds: subBreeds ?? this.subBreeds,
     );
   }
-
-  Map<String, dynamic> toMap() {
-    return <String, dynamic>{
-      'name': name,
-      'imagePath': imagePath,
-    };
-  }
-
-  factory Dog.fromMap(Map<String, dynamic> map) {
-    return Dog(
-      name: map['name'] != null ? map['name'] as String : null,
-      imagePath: map['imagePath'] != null ? map['imagePath'] as String : null,
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Dog.fromJson(String source) =>
-      Dog.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   bool get stringify => true;
-
-  @override
-  List<Object?> get props => [name, imagePath];
 }
