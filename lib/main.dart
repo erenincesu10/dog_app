@@ -1,9 +1,7 @@
-import 'package:dog_app/app/core/constants/color_constant.dart';
 import 'package:dog_app/app/core/get_it/get_it.dart';
 import 'package:dog_app/app/presentation/home/bloc/home_bloc.dart';
 import 'package:dog_app/app/presentation/main/bloc/main_bloc.dart';
 import 'package:dog_app/app/presentation/main/main_view.dart';
-import 'package:dog_app/app/presentation/main/widgets/custom_textfield.dart';
 import 'package:dog_app/app/presentation/settings/bloc/settings_bloc.dart';
 import 'package:dog_app/app/presentation/splash/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -37,16 +35,20 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SplashView(),
+          '/main': (context) => const MainView()
+        },
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
               scrolledUnderElevation: 0,
-              backgroundColor: ColorConstant.primaryColor),
-          scaffoldBackgroundColor: ColorConstant.primaryColor,
+              backgroundColor: Colors.white),
+          scaffoldBackgroundColor: Colors.white,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MainView(),
       ),
     );
   }

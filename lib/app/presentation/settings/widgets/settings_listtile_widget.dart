@@ -21,13 +21,9 @@ class SettingsListTileWidget extends StatefulWidget {
 class _SettingsListTileWidgetState extends State<SettingsListTileWidget> {
   @override
   Widget build(BuildContext context) {
-    var bloc = context.read<SettingsBloc>();
     return BlocBuilder<SettingsBloc, SettingsState>(
       builder: (context, state) {
         return ListTile(
-          onTap: () async {
-            bloc.add(const SetVersionEvent(versionNumber: "versionNumber"));
-          },
           leading: Image.asset(widget.iconPath),
           title: Text(widget.title),
           trailing: widget.isVersion

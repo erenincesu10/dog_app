@@ -20,6 +20,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
         return Container(
           width: context.width,
           height: context.height * 0.12,
+          padding: EdgeInsets.symmetric(horizontal: 20),
           decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,
@@ -55,11 +56,10 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
               ),
               const VerticalDivider(
                 width: 2,
-                indent: 24,
-                endIndent: 50,
+                indent: 4,
+                endIndent: 30,
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
                     onPressed: () {

@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:ui';
+
 import 'package:dog_app/app/core/constants/color_constant.dart';
 import 'package:dog_app/app/presentation/home/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
@@ -45,17 +47,28 @@ class GridContainer extends StatelessWidget {
               color: ColorConstant.primaryColor,
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Container(
-              width: context.width * 0.2,
-              height: context.height * 0.05,
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.24),
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(8),
-                  bottomLeft: Radius.circular(8),
+            child: ClipRRect(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+                child: IntrinsicWidth(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    height: context.height * 0.05,
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.24),
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(8),
+                        bottomLeft: Radius.circular(8),
+                      ),
+                    ),
+                    child: Center(
+                        child: Text(
+                      name,
+                      style: const TextStyle(fontSize: 16, color: Colors.white),
+                    )),
+                  ),
                 ),
               ),
-              child: Center(child: Text(name)),
             ),
           ),
         );

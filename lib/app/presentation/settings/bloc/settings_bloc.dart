@@ -23,7 +23,6 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     String osVersion;
     try {
       osVersion = await _channel.invokeMethod('getOSVersion');
-      print(osVersion);
       emit(state.copyWith(versionNumber: osVersion));
     } on PlatformException catch (e) {
       debugPrint(e.toString());
