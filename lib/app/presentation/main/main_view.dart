@@ -19,7 +19,6 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    var bloc = context.read<MainBloc>();
     return BlocBuilder<MainBloc, MainState>(
       builder: (context, state) {
         return Scaffold(

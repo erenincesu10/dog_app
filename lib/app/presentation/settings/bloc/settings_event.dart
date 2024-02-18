@@ -8,11 +8,8 @@ sealed class SettingsEvent extends Equatable {
 }
 
 class SetVersionEvent extends SettingsEvent {
-  final String versionNumber;
-  const SetVersionEvent({required this.versionNumber});
+  const SetVersionEvent();
 
   @override
-  List<Object> get props => [
-        versionNumber,
-      ];
+  List<Object> get props => [];
 }

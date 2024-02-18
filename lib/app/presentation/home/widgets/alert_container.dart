@@ -69,20 +69,22 @@ class _AlertContainerState extends State<AlertContainer> {
                   style:
                       TextStyle(color: ColorConstant.cTextBlue, fontSize: 20),
                 ),
-                const SizedBox(
-                  height: 10,
+                const Divider(
+                  indent: 32,
+                  endIndent: 32,
                 ),
                 Text(
                   state.breedModels[state.selectedIndex].name!,
-                  style: const TextStyle(color: Colors.black, fontSize: 20),
-                ),
-                const SizedBox(
-                  height: 10,
+                  style: const TextStyle(color: Colors.black, fontSize: 16),
                 ),
                 const Text(
                   "Sub Breed",
                   style:
                       TextStyle(color: ColorConstant.cTextBlue, fontSize: 20),
+                ),
+                const Divider(
+                  indent: 32,
+                  endIndent: 32,
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -100,7 +102,7 @@ class _AlertContainerState extends State<AlertContainer> {
                 const SizedBox(
                   height: 10,
                 ),
-                GenerateButton(),
+                const GenerateButton(),
                 const SizedBox(
                   height: 10,
                 ),

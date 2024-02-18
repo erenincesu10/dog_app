@@ -6,8 +6,9 @@ class HomeAppbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text("Dog App"),
+      title: const Text("Dog App"),
       centerTitle: true,
+      automaticallyImplyLeading: false,
     );
   }
 
