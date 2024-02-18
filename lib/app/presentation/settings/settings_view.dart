@@ -18,7 +18,7 @@ class _SettingsViewState extends State<SettingsView> with SettingsMixin {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsBloc, SettingsState>(
-      bloc: context.read<SettingsBloc>()..add(SetVersionEvent()),
+      bloc: context.read<SettingsBloc>()..add(const SetVersionEvent()),
       builder: (context, state) {
         return SafeArea(
           child: SizedBox(

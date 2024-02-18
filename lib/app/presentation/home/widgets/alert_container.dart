@@ -87,7 +87,7 @@ class _AlertContainerState extends State<AlertContainer> {
                   endIndent: 32,
                 ),
                 state
-                        .breedModels[state.selectedIndex].subBreeds!.isEmpty ?SizedBox() : Expanded(
+                        .breedModels[state.selectedIndex].subBreeds!.isEmpty ?const SizedBox() : Expanded(
                   child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: state

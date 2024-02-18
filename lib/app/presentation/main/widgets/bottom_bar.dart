@@ -20,7 +20,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
         return Container(
           width: context.width,
           height: context.height * 0.12,
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           decoration: const BoxDecoration(
             image: DecorationImage(
                 fit: BoxFit.cover,

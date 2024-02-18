@@ -6,11 +6,10 @@ part 'main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
   MainBloc()
-      : super(MainState(
+      : super(const MainState(
           selectedIndex: 0,
         )) {
     on<MainEvent>((event, emit) {
-      // TODO: implement event handler
     });
     on<SelectIndexEvent>(_setSelectedIndex);
   }
